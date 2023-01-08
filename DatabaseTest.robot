@@ -7,7 +7,7 @@ ${DBName}         postgres
 ${DBUser}         postgres
 ${DBPassword}     yacinepassword
 ${DBHost}         localhost
-${DBPort}         5434
+${DBPort}         5433
 
 *** Test Cases ***
 Connect DB
