@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation     Database Testing with Robot Framework
-Library           DatabaseLibrary
+Library           PostgreSQLDB
 
 *** Variables ***
-${DBName}         postgres
+${DBName}         postgres_fyc
 ${DBUser}         postgres
-${DBPassword}     yacinepassword
+${DBPassword}     1997
 ${DBHost}         localhost
 ${DBPort}         5433
 
