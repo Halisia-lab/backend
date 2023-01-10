@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation     Database Testing with Robot Framework
-Library           PostgreSQLDB
+Library           DatabaseLibrary
 
 *** Variables ***
 ${DBName}         postgres_fyc
