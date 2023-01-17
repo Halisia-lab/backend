@@ -1,19 +1,29 @@
 *** Settings ***
-Documentation     Database Testing with Robot Framework
 Library           DatabaseLibrary
 
 *** Variables ***
-${DBName}         postgres_fyc
-${DBUser}         postgres
-${DBPassword}     1997
-${DBHost}         localhost
-${DBPort}         5433
+${name}           postgres_fyc
+${user}           postgres
+${password}       1997
+${host}           localhost
+${port}           5433
 
 *** Test Cases ***
 Connect DB
-    Connect To Database  psycopg2  ${DBName}    ${DBUser}    ${DBPassword}    ${DBHost}    ${DBPort}
-    Execute Sql String  INSERT INTO users(users_id, address, city, email, first_name, last_name, password, phone_number, post_index) VALUES (5,'15 rue', 'Paris', 'test@gmail.com', 'Test', 'Name', 'password123', '0612341212', 75000) returning email;
+    Connect To Database    psycopg2    ${name}    ${user}    ${password}    ${host}    ${port}
+
+Create Table
+    Execute SQL String    CREATE TABLE If Not Exists Cours (Id int, Nom varchar(20), NbPlaces int);
+
+Add Java class
+    Execute SQL String    INSERT INTO Cours VALUES (1, 'Java', 30);
+
+Check if java exists
+    Check If Exists In Database    SELECT Id from Cours where Nom = 'Java'
+
+Check if there is one row
+    ${rows} =    Row Count    SELECT * from Cours where Nom = 'Java'
+    Should Be Equal As Integers    ${rows}    1
+
+Disconnect
     Disconnect From Database
-    
-#INSERT INTO users VALUES (5,'15 rue', 'Paris', 'test@gmail.com', 'Test', 'Name', 'password123', '0612341212', 75000) returning email;
-#@{query}=  
