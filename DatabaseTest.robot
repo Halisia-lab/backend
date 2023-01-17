@@ -21,10 +21,14 @@ Add Java class
 Check if java exists
     Check If Exists In Database    SELECT Id from Cours where Nom = 'Java'
 
-Check if there is one row
+Check if there is Java courses
     ${rows} =    Row Count    SELECT * from Cours where Nom = 'Java'
     Should Be Equal As Integers    ${rows}    3
+    
+Check if there is Crypto courses
+    ${rows} =    Row Count    SELECT * from Cours where Nom = 'Cryptography'
+    Should Be Equal As Integers    ${rows}    6
 
 Disconnect
     Disconnect From Database
-#
+
