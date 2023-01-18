@@ -16,7 +16,8 @@ Create Table
     Execute SQL String    CREATE TABLE If Not Exists Cours (Id int, Nom varchar(20), NbPlaces int);
 
 Add Java class
-    Execute SQL String    INSERT INTO Cours VALUES (1, 'Java', 30);
+    Execute SQL String    INSERT INTO Cours VALUES (3, 'PHP', 30);
 
 Disconnect
     Disconnect From Database
+
