@@ -12,11 +12,12 @@ ${port}           5433
 Connect DB
     Connect To Database    psycopg2    ${name}    ${user}    ${password}    ${host}    ${port}
 
-Create Table
-    Execute SQL String    CREATE TABLE If Not Exists Cours (Id int, Nom varchar(20), NbPlaces int);
+Check if java exists
+    Check If Exists In Database    SELECT Id from Cours where Nom = 'Java'
 
-Add Java class
-    Execute SQL String    INSERT INTO Cours VALUES (1, 'Java', 30);
+Check if there is one row
+    ${rows} =    Row Count    SELECT * from Cours where Nom = 'Java'
+    Should Be Equal As Integers    ${rows}    1
 
 Disconnect
     Disconnect From Database
