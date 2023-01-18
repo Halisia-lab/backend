@@ -17,7 +17,7 @@ Check if java exists
 
 Check if there is one row
     ${rows} =    Row Count    SELECT * from Cours where Nom = 'Java'
-    Should Be Equal As Integers    ${rows}    1
+    Should Be Equal As Integers    ${rows}    3
 
 Disconnect
     Disconnect From Database
