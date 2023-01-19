@@ -18,6 +18,10 @@ Check if java exists
 Check if there is one row
     ${rows} =    Row Count    SELECT * from Cours where Nom = 'Java'
     Should Be Equal As Integers    ${rows}    3
+    
+Check if there is one row
+    ${rows} =    Row Count    SELECT * from Cours where Nom = 'NodeJS'
+    Should Be Equal As Integers    ${rows}    0
 
 Disconnect
     Disconnect From Database 
