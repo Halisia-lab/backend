@@ -17,7 +17,14 @@ Create Table
 
 Add Java class
     Execute SQL String    INSERT INTO Cours VALUES (3, 'PHP', 30);
+    
+Check if java exists
+    Check If Exists In Database    SELECT Id from Cours where Nom = 'Java'
 
+Check if there is one row
+    ${rows} =    Row Count    SELECT * from Cours where Nom = 'Java'
+    Should Be Equal As Integers    ${rows}    3
+    
 Disconnect
     Disconnect From Database
 
